@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\PendaftaranController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +23,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+    // Pendaftaran
+    // Pembayaran
+    Route::get('/pembayaran',[PembayaranController::class, 'index']);
+});

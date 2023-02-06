@@ -26,7 +26,7 @@ class PembayaranController extends Controller
      */
     public function create()
     {
-        //
+        return view('pembayaran.form');
     }
 
     /**
@@ -37,7 +37,16 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pembayaran = new Pembayaran;
+
+        $pembayaran->id_pembayaran = $request->Id_pembayaran;
+        $pembayaran->id_pendaftaran = $request->id_Pendaftaran;
+        $pembayaran->id_pihakasrama = $request->Id_pihakAsrama;
+        $pembayaran->tgl_masuk = $request->Tanggal_masuk;
+        $pembayaran->biaya = $request->biaya;
+        $pembayaran->save();
+
+        return redirect('/pembayaran');
     }
 
     /**

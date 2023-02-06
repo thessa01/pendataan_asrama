@@ -28,4 +28,6 @@ Route::middleware('auth')->group(function () {
     // Pendaftaran
     // Pembayaran
     Route::get('/pembayaran',[PembayaranController::class, 'index']);
+    Route::get('/pembayaran/form',[PembayaranController::class, 'create']);
+    Route::post('/pembayaran',[PembayaranController::class, 'store']);
 });
